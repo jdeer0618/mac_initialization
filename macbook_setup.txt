@@ -1,0 +1,81 @@
+# Install Xcode command-line tools
+sudo xcode-select --install
+
+# Check for Homebrew,
+# Install if we don't have it
+if test ! $(which brew); then
+  echo "Installing homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update homebrew recipes
+brew update
+
+# Ensure Brew PATH is set correctly
+echo "export PATH=/usr/local/bin:/usr/local/sbin:$PATH" &gt;&gt; ~/.profile
+source ~/.profile
+
+# Install GNU core utilities (those that come with OS X are outdated)
+brew install coreutils
+
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+
+# Install Bash 4
+brew install bash
+
+# Install more recent versions of some OS X tools
+brew tap homebrew/dupes
+brew install homebrew/dupes/grep
+
+binaries=(
+  rename
+  python
+)
+
+echo "installing binaries..."
+brew install ${binaries[@]}
+
+# Use this to install apps
+brew install caskroom/cask/brew-cask
+
+
+# Brew-cask install apps
+apps=(
+python
+ynab
+smcfancontrol
+firefox
+chrome
+alfred
+textwrangler
+skype
+lastpass
+appcleaner
+dropbox
+flux
+iterm2
+zsh
+evernote
+hipchat
+
+)
+
+echo "installing apps..."
+brew cask install --appdir="/Applications" ${apps[@]}
+
+# Create symlink for Dropbox
+ln -s <source> /Users/jd/dropboxPersonal/
+
+# Install and update pip
+
+# Install ansible
+
+# Change save location for screenshots
+defaults write com.apple.screencapture location ~/dropboxPersonal/_images/screenshots/ && killall SystemUIServer
+
+
+# Downloads/Other installs
+# ExpanDrive
+# Daily App
+# Lastpass Mac App
