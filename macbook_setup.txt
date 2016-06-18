@@ -14,7 +14,7 @@ fi
 brew update
 
 # Ensure Brew PATH is set correctly
-echo "export PATH=/usr/local/bin:/usr/local/sbin:$PATH" &gt;&gt; ~/.profile
+echo "export PATH=/usr/local/bin:/usr/local/sbin:$PATH" >> ~/.profile
 source ~/.profile
 
 # Install GNU core utilities (those that come with OS X are outdated)
@@ -55,12 +55,8 @@ skype
 lastpass
 appcleaner
 dropbox
-flux
 iterm2
-zsh
 evernote
-hipchat
-
 )
 
 echo "installing apps..."
